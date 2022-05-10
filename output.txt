@@ -1,6 +1,4 @@
--Machine learning algorithms as is are still vulnerable in numerous ways.
-   -that are unaccountable and unexplainable. Additionally, humans are vulnerable to the large-scale deployment of ML algorithms in society. We have seen facial recognition fail to correctly
-       -Deepfake algorithms have been shown
--One answer to this question is formulated through the Theoretical
--entities deploying facial recognition for the
-   -According to the Fundamental
+-Machine learning algorithms as is are still vulnerable in numerous ways. 0 10
+   -We have seen facial recognition fail to correctly 6 13
+       -virtual/robot companions. 5 6
+-rights possessed by human beings in 4 9

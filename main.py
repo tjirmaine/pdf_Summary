@@ -30,10 +30,15 @@ def main():
             annot = annot.next
         #
         all_words = page.get_text_words()
-
         for h in highlights:
-            sentence = [w[4] for w in all_words if fitz.Rect(w[0:4]).intersects(h[0])]
-            highlight_text.append((" ".join(sentence), h[1]))
+            sentence = []
+            for word in all_words:
+                if fitz.Rect(word[0:4]).intersects(h[0]):
+                    if not sentence:
+                        first_word_number = word[7]
+                    sentence.append(word[4])
+                    last_word_number = word[7]
+            highlight_text.append((" ".join(sentence), h[1], first_word_number, last_word_number))
     print_text(highlight_text)
 
 
@@ -56,11 +61,16 @@ def print_text(highlighted_text):
         for sentence in highlighted_text:
             colour = sentence[1]
             if colour == 'khaki':
-                output.write("-" + sentence[0] + "\n")
+                output.write("-" + sentence[0] + " " + str(sentence[2]) + " " + str(sentence[3]) + "\n")
             elif colour == 'tomato':
-                output.write("   -" + sentence[0] + "\n")
+                output.write("   -" + sentence[0] + " " + str(sentence[2]) + " " + str(sentence[3]) + "\n")
             elif colour == 'plum':
-                output.write("       -" + sentence[0] + "\n")
+                output.write("       -" + sentence[0] + " " + str(sentence[2]) + " " + str(sentence[3]) + "\n")
+
+# def sort_notes(highlighted_text):
+#     for sentence in highlighted_text:
+
+
 
 
 if __name__ == "__main__":
