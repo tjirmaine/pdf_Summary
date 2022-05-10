@@ -6,6 +6,7 @@ from webcolors import (
     hex_to_rgb,
 )
 
+
 def main():
     doc = fitz.open("sample.pdf")
     print(len(doc))
@@ -29,7 +30,7 @@ def main():
                 highlight_coord = fitz.Quad(all_coordinates).rect
                 highlights.append(highlight_coord)
             else:
-                all_coordinates = [all_coordinates[x:x+4] for x in
+                all_coordinates = [all_coordinates[x:x + 4] for x in
                                    range(0, len(all_coordinates), 4)]
                 for i in range(0, len(all_coordinates)):
                     coord = fitz.Quad(all_coordinates[i]).rect
@@ -44,7 +45,7 @@ def main():
         sentence = [w[4] for w in all_words if fitz.Rect(w[0:4]).intersect(h)]
         highlight_text.append(" ".join(sentence))
 
-    print(" ".join(highlight_text))
+    print(highlight_text)
 
 
 def convert_rgb_to_names(rgb_tuple):
@@ -59,6 +60,7 @@ def convert_rgb_to_names(rgb_tuple):
     kdt_db = KDTree(rgb_values)
     distance, index = kdt_db.query(rgb_tuple)
     return names[index]
+
 
 if __name__ == "__main__":
     main()
